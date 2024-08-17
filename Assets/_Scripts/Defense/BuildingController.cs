@@ -27,6 +27,8 @@ namespace JustGame.Scripts.Defense
         [SerializeField] private OnClickBuildingEvent m_onClickBuildingEvent;
         
         private float m_curBuildTime;
+
+        public Action<BuildingState> OnStateChange;
         
         public Sprite Icon => m_buildingIcon;
 
@@ -83,6 +85,7 @@ namespace JustGame.Scripts.Defense
         public void SetBuildingState(BuildingState newState)
         {
             m_curState = newState;
+            OnStateChange?.Invoke(newState);
         }
     }
 }

@@ -26,7 +26,10 @@ namespace JustGame.Scripts.UI
             {
                 m_buildingInfoUIPanel.DisplayInfo(data.BuildingData.BuildingName,data.BuildingData.DefenseData.ArmorType);
             }
-            
+            else if (data.BuildingData.OffenseData != null)
+            {
+                m_buildingInfoUIPanel.DisplayInfo(data.BuildingData.BuildingName,data.BuildingData.OffenseData.ArmorType);
+            }
         }
     }
 }
