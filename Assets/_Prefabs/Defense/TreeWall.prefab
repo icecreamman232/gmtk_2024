@@ -56,6 +56,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TreeWall
       objectReference: {fileID: 0}
+    - target: {fileID: 7322223500986750095, guid: 146249b3fd9454c4c84dace4d2a50513, type: 3}
+      propertyPath: m_buildingIcon
+      value: 
+      objectReference: {fileID: -319341231, guid: dcc928c02e542834199d6efe6c42de7f, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

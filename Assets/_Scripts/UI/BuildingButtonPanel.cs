@@ -18,7 +18,7 @@ namespace JustGame.Scripts.UI
             }
         }
 
-        private GameObject GetRandomBuildingPrefab()
+        public GameObject GetRandomBuildingPrefab()
         {
             var randomIndex = Random.Range(0, m_buildingContainer.DefensiveBuilding.Length);
             return m_buildingContainer.DefensiveBuilding[randomIndex];
