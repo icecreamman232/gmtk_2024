@@ -13,7 +13,7 @@ TagManager:
   - UI
   - Player
   - Building
-  - 
+  - Enemies
   - 
   - 
   - 
@@ -43,6 +43,9 @@ TagManager:
     locked: 0
   - name: Defense
     uniqueID: 2649388699
+    locked: 0
+  - name: Enemies
+    uniqueID: 1148752447
     locked: 0
   - name: Player
     uniqueID: 1428443737
