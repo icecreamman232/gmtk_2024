@@ -649,6 +649,7 @@ MonoBehaviour:
   m_mainCamera: {fileID: 519420031}
   m_onLeftMouseClickInWorld: {fileID: 11400000, guid: 76e0637e33ca0c1469efa47cbc06b093, type: 2}
   m_buildingBtnToCursorEvent: {fileID: 11400000, guid: d4502624c0a3a1a4aaaa64192c596024, type: 2}
+  m_placeBuildingPosEvent: {fileID: 11400000, guid: 053949922d0d0c14789b7f97f403b46a, type: 2}
 --- !u!4 &1465102675
 Transform:
   m_ObjectHideFlags: 0

@@ -1,3 +1,5 @@
+using System;
+using JustGame.Scripts.ScriptableEvent;
 using UnityEngine;
 
 namespace JustGame.Scripts.Player
@@ -8,11 +10,20 @@ namespace JustGame.Scripts.Player
         [SerializeField] private Vector2 m_movingDirection;
         [SerializeField] private Vector2 m_worldBoundary;
         [SerializeField] private Camera m_mainCamera;
+        [SerializeField] private Vector3Event m_buildingPlacePosEvent;
 
         private Vector2 m_curPos;
         private Vector2 m_destinationPos;
-        
-        
+
+        private void OnEnable()
+        {
+            m_buildingPlacePosEvent.AddListener(MovePlayerToPosition);
+        }
+        private void OnDisable()
+        {
+            m_buildingPlacePosEvent.RemoveListener(MovePlayerToPosition);
+        }
+
         private void Update()
         {
             HandleInput();
@@ -31,6 +42,11 @@ namespace JustGame.Scripts.Player
         private void MovePlayerToPosition()
         {
             m_destinationPos = m_mainCamera.ScreenToWorldPoint(Input.mousePosition);
+        }
+
+        private void MovePlayerToPosition(Vector3 newPos)
+        {
+            m_destinationPos = newPos;
         }
 
         private void UpdateMovement()

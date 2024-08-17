@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8331944393427059943}
   - component: {fileID: 346094808697774561}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48,6 +48,8 @@ MonoBehaviour:
   m_moveSpeed: 5
   m_movingDirection: {x: 0, y: 0}
   m_worldBoundary: {x: 33, y: 33}
+  m_mainCamera: {fileID: 0}
+  m_buildingPlacePosEvent: {fileID: 11400000, guid: 053949922d0d0c14789b7f97f403b46a, type: 2}
 --- !u!1 &7514638109340064345
 GameObject:
   m_ObjectHideFlags: 0
@@ -60,7 +62,8 @@ GameObject:
   - component: {fileID: 5080658333792142413}
   - component: {fileID: 2497437468451318516}
   - component: {fileID: 7863422742975025358}
-  m_Layer: 0
+  - component: {fileID: 5123514546531393943}
+  m_Layer: 6
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -206,3 +209,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &5123514546531393943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7514638109340064345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c838870394488a4a89de7e434f4630b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_buildableLayerMask:
+    serializedVersion: 2
+    m_Bits: 128

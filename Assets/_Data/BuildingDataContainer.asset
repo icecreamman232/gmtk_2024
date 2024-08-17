@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: BuildingDataContainer
   m_EditorClassIdentifier: 
   DefensiveBuilding:
-  - {fileID: 6325449408471101574, guid: 146249b3fd9454c4c84dace4d2a50513, type: 3}
-  - {fileID: 3920795308512080570, guid: 2e37ecdb72f28004aa1e3429d8051f7d, type: 3}
+  - {fileID: 11400000, guid: fcc0d79e6099e77459df8f530b2f764e, type: 2}
+  - {fileID: 11400000, guid: 6733553d90f6472489203cfa6b738997, type: 2}
   OffensiveBuilding: []

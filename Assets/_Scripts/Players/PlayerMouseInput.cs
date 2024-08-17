@@ -9,6 +9,7 @@ namespace JustGame.Scripts.Player
         [SerializeField] private Camera m_mainCamera;
         [SerializeField] private ActionEvent m_onLeftMouseClickInWorld;
         [SerializeField] private GameObjectEvent m_buildingBtnToCursorEvent;
+        [SerializeField] private Vector3Event m_placeBuildingPosEvent;
 
         private GameObject m_assignedBuilding;
 
@@ -65,6 +66,7 @@ namespace JustGame.Scripts.Player
             curPos.x = Mathf.Round(curPos.x);
             curPos.y = Mathf.Round(curPos.y);
             m_assignedBuilding.transform.position = curPos;
+            m_placeBuildingPosEvent.Raise(curPos);
             
             //Set state to "Building" which require player to go nearby and build it
             var controller = m_assignedBuilding.GetComponent<BuildingController>();
