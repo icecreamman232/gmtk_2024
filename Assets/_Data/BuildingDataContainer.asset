@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aec4ebd18f8910c4ea4b00d46630900b, type: 3}
+  m_Name: BuildingDataContainer
+  m_EditorClassIdentifier: 
+  DefensiveBuilding:
+  - {fileID: 6325449408471101574, guid: 146249b3fd9454c4c84dace4d2a50513, type: 3}
+  - {fileID: 3920795308512080570, guid: 2e37ecdb72f28004aa1e3429d8051f7d, type: 3}
+  OffensiveBuilding: []
