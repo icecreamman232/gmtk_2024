@@ -21,6 +21,8 @@ public class EnemyController : MonoBehaviour
         if (m_targetPoint.NextPoint == null)
         {
             m_movement.StopMoving();
+            gameObject.SetActive(false);
+            Destroy(gameObject);
         }
         else
         {

@@ -6,7 +6,6 @@ namespace JustGame.Scripts.Data
     public class BuildingDataContainer : ScriptableObject
     {
         public BuildingData[] DefensiveBuilding;
-
-        public GameObject[] OffensiveBuilding;
+        public BuildingData[] OffensiveBuilding;
     }
 }

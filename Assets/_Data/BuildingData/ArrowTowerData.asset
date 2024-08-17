@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2db66b9a3916eb4885a5c9aa0b551db, type: 3}
+  m_Name: ArrowTowerData
+  m_EditorClassIdentifier: 
+  ID: ArrowTower
+  BuildingName: Arrow Tower
+  AvailableColor: {r: 0.5566038, g: 0.5566038, b: 0.5566038, a: 1}
+  Prefab: {fileID: 801622610670715534, guid: a6c44d4589160b04bac3f0cc97181659, type: 3}
+  Icon: {fileID: -2047780462, guid: 7d9ad2e059a3c034486ae3ee654e5dee, type: 3}
+  BuildTime: 0.5
+  Price: 50
+  OffenseData: {fileID: 11400000, guid: 26fa500b45ace3144891c1dafe12f422, type: 2}
+  DefenseData: {fileID: 0}

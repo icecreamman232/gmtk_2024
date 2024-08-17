@@ -20,8 +20,17 @@ namespace JustGame.Scripts.UI
 
         public GameObject GetRandomBuildingPrefab()
         {
-            var randomIndex = Random.Range(0, m_buildingContainer.DefensiveBuilding.Length);
-            return m_buildingContainer.DefensiveBuilding[randomIndex].Prefab;
+            var randomType = Random.Range(0, 2);
+            if (randomType == 0)
+            {
+                var randomIndex = Random.Range(0, m_buildingContainer.DefensiveBuilding.Length);
+                return m_buildingContainer.DefensiveBuilding[randomIndex].Prefab;
+            }
+            else
+            {
+                var randomIndex = Random.Range(0, m_buildingContainer.OffensiveBuilding.Length);
+                return m_buildingContainer.OffensiveBuilding[randomIndex].Prefab;
+            }
         }
     }
 }

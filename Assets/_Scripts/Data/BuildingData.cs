@@ -13,6 +13,7 @@ namespace JustGame.Scripts.Data
         public float BuildTime;
         public int Price;
 
+        public OffenseData OffenseData;
         public DefenseData DefenseData;
     }
 }

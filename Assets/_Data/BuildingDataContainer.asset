@@ -15,4 +15,5 @@ MonoBehaviour:
   DefensiveBuilding:
   - {fileID: 11400000, guid: fcc0d79e6099e77459df8f530b2f764e, type: 2}
   - {fileID: 11400000, guid: 6733553d90f6472489203cfa6b738997, type: 2}
-  OffensiveBuilding: []
+  OffensiveBuilding:
+  - {fileID: 11400000, guid: d826a1db0629b8540af425ae082cf769, type: 2}
