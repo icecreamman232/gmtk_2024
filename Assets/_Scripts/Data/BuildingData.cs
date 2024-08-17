@@ -10,6 +10,8 @@ namespace JustGame.Scripts.Data
         public GameObject Prefab;
         public Sprite Icon;
         public float BuildTime;
+
+        public DefenseData DefenseData;
     }
 }
 

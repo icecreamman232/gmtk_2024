@@ -22,7 +22,8 @@ namespace JustGame.Scripts.Defense
         [SerializeField] private SpriteRenderer m_bodyRenderer;
         [SerializeField] private BuildingData m_data;
         [SerializeField] private BuildingTimeBarUI m_timeBar;
-
+        [SerializeField] private BuildingHealth m_health;
+        
         private float m_curBuildTime;
         
         public Sprite Icon => m_buildingIcon;
@@ -34,6 +35,15 @@ namespace JustGame.Scripts.Defense
             set => m_isPermit = value;
             get => m_isPermit;
         }
+
+        private void Start()
+        {
+            if (m_data.DefenseData != null)
+            {
+                m_health.Initialize(m_data.DefenseData.MaxHP);
+            }
+        }
+
 
         private void Update()
         {

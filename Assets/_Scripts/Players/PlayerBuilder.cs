@@ -28,6 +28,8 @@ namespace JustGame.Scripts.Player
         {
             var controller = other.gameObject.GetComponentInParent<BuildingController>();
 
+            if (controller == null) return;
+            
             if (controller.CurrentState == BuildingState.READY_TO_BUILD)
             {
                 controller.SetBuildingState(BuildingState.BUILDING);
@@ -38,6 +40,8 @@ namespace JustGame.Scripts.Player
         {
             var controller = m_lastBuildingInteract.gameObject.GetComponentInParent<BuildingController>();
 
+            if (controller == null) return;
+            
             if (controller.CurrentState == BuildingState.BUILDING)
             {
                 controller.SetBuildingState(BuildingState.READY_TO_BUILD);

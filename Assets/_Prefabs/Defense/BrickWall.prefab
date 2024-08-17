@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1592888522506979923}
   - component: {fileID: 7322223500986750095}
+  - component: {fileID: -5162002653906295602}
   m_Layer: 7
   m_Name: BrickWall
   m_TagString: Untagged
@@ -52,6 +53,21 @@ MonoBehaviour:
   m_bodyRenderer: {fileID: 1685645522722737484}
   m_data: {fileID: 11400000, guid: fcc0d79e6099e77459df8f530b2f764e, type: 2}
   m_timeBar: {fileID: 3516664301007235846}
+  m_health: {fileID: -5162002653906295602}
+--- !u!114 &-5162002653906295602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6325449408471101574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31ce04381d616064793946ef84e4ed18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_maxHealth: 0
+  m_curHealth: 0
 --- !u!1 &8691331165961880375
 GameObject:
   m_ObjectHideFlags: 0
