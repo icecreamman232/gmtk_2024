@@ -1,4 +1,5 @@
 using JustGame.Scripts.Defense;
+using JustGame.Scripts.Managers;
 using JustGame.Scripts.ScriptableEvent;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -15,6 +16,8 @@ namespace JustGame.Scripts.UI
         [SerializeField] private GameObjectEvent m_assignToCursorEvent;
 
         private BuildingButtonPanel m_panelRef;
+        private int m_price;
+        
         protected override void OnEnable()
         {
             m_onLeftMouseClick.AddListener(OnLeftMouseClickInWorld);
@@ -42,12 +45,18 @@ namespace JustGame.Scripts.UI
                 return;
             }
 
+            m_price = buildingController.Price;
+
             m_icon.sprite = buildingController.Icon;
         }
 
         public override void OnPointerClick(PointerEventData eventData)
         {
             if (m_isClicked) return;
+            
+            //Check if player can buy this building
+            if (!ResourceManager.Instance.CanBuy(m_price)) return;
+            
             m_isClicked = true;
             AssignBuildingPrefabToCursor();
         }

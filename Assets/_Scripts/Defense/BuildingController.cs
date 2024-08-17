@@ -29,6 +29,8 @@ namespace JustGame.Scripts.Defense
         public Sprite Icon => m_buildingIcon;
 
         public BuildingState CurrentState => m_curState;
+
+        public int Price => m_data.Price;
         
         public bool IsPermit
         {
