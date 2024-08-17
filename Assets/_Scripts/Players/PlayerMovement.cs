@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace JustGame.Scripts.Player
@@ -8,8 +7,12 @@ namespace JustGame.Scripts.Player
         [SerializeField] private float m_moveSpeed;
         [SerializeField] private Vector2 m_movingDirection;
         [SerializeField] private Vector2 m_worldBoundary;
+        [SerializeField] private Camera m_mainCamera;
 
         private Vector2 m_curPos;
+        private Vector2 m_destinationPos;
+        
+        
         private void Update()
         {
             HandleInput();
@@ -18,29 +21,31 @@ namespace JustGame.Scripts.Player
 
         private void HandleInput()
         {
-            m_movingDirection = Vector2.zero;
-            
-            if (Input.GetKey(KeyCode.A))
+            //Right click
+            if (Input.GetMouseButtonDown(1))
             {
-                m_movingDirection.x = -1;
+                m_destinationPos = GetWorldMousePos();
             }
-            if (Input.GetKey(KeyCode.D))
-            {
-                m_movingDirection.x = 1;
-            }
-            if (Input.GetKey(KeyCode.W))
-            {
-                m_movingDirection.y = 1;
-            }
-            if (Input.GetKey(KeyCode.S))
-            {
-                m_movingDirection.y = -1;
-            }
+        }
+
+        private Vector2 GetWorldMousePos()
+        {
+            var pos = m_mainCamera.ScreenToWorldPoint(Input.mousePosition);
+            pos.z = 0;
+            return pos;
         }
 
         private void UpdateMovement()
         {
-            transform.Translate(m_movingDirection * (Time.deltaTime * m_moveSpeed));
+            transform.position = Vector2.MoveTowards(
+                transform.position, 
+                m_destinationPos, 
+                Time.deltaTime * m_moveSpeed);
+            CheckWorldBoundary();
+        }
+
+        private void CheckWorldBoundary()
+        {
             m_curPos = transform.position;
             if (m_curPos.x >= m_worldBoundary.x/2)
             {

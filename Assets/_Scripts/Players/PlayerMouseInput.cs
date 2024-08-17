@@ -1,3 +1,4 @@
+using JustGame.Scripts.Defense;
 using JustGame.Scripts.ScriptableEvent;
 using UnityEngine;
 
@@ -64,6 +65,10 @@ namespace JustGame.Scripts.Player
             curPos.x = Mathf.Round(curPos.x);
             curPos.y = Mathf.Round(curPos.y);
             m_assignedBuilding.transform.position = curPos;
+            
+            //Set state to "Building" which require player to go nearby and build it
+            var controller = m_assignedBuilding.GetComponent<BuildingController>();
+            controller.SetBuildingState(BuildingState.BUILDING);
             
             m_assignedBuilding.transform.parent = null;
             m_assignedBuilding = null;
