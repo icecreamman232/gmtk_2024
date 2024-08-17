@@ -617,6 +617,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a371d69e5f88cc4f8cc25eafa017a28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1465102673
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1465102675}
+  - component: {fileID: 1465102674}
+  m_Layer: 0
+  m_Name: MouseInputManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1465102674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1465102673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4db084ca9f401c4a804fd12acc0c346, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_mainCamera: {fileID: 519420031}
+  m_onLeftMouseClickInWorld: {fileID: 11400000, guid: 76e0637e33ca0c1469efa47cbc06b093, type: 2}
+  m_buildingBtnToCursorEvent: {fileID: 11400000, guid: d4502624c0a3a1a4aaaa64192c596024, type: 2}
+--- !u!4 &1465102675
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1465102673}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &1474083221 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1647609650378806592, guid: d95ac730f6136e943b7adf890e117b23, type: 3}
@@ -1084,3 +1131,4 @@ SceneRoots:
   - {fileID: 418893223254517269}
   - {fileID: 1878281537}
   - {fileID: 1729824527}
+  - {fileID: 1465102675}

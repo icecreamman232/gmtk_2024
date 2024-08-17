@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8331944393427059943}
   - component: {fileID: 346094808697774561}
-  - component: {fileID: 2694387967015572482}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -49,19 +48,6 @@ MonoBehaviour:
   m_moveSpeed: 5
   m_movingDirection: {x: 0, y: 0}
   m_worldBoundary: {x: 33, y: 33}
---- !u!114 &2694387967015572482
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2509792563374588412}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4db084ca9f401c4a804fd12acc0c346, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_onLeftMouseClickInWorld: {fileID: 11400000, guid: 76e0637e33ca0c1469efa47cbc06b093, type: 2}
 --- !u!1 &7514638109340064345
 GameObject:
   m_ObjectHideFlags: 0

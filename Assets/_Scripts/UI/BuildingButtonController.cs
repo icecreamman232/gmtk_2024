@@ -8,8 +8,9 @@ namespace JustGame.Scripts.UI
     public class BuildingButtonController : Button
     {
         [SerializeField] private bool m_isClicked;
-        [SerializeField] private ActionEvent m_onLeftMouseClick;
         [SerializeField] private GameObject m_buildingPrefab;
+        [SerializeField] private ActionEvent m_onLeftMouseClick;
+        [SerializeField] private GameObjectEvent m_assignToCursorEvent;
 
         private BuildingButtonPanel m_panelRef;
         protected override void OnEnable()
@@ -34,15 +35,26 @@ namespace JustGame.Scripts.UI
             m_buildingPrefab = newBuildingPrefab;
         }
 
-        private void OnLeftMouseClickInWorld()
-        {
-            m_isClicked = false;
-        }
-
         public override void OnPointerClick(PointerEventData eventData)
         {
             if (m_isClicked) return;
             m_isClicked = true;
+            AssignBuildingPrefabToCursor();
+        }
+
+        private void OnLeftMouseClickInWorld()
+        {
+            m_isClicked = false;
+        }
+        
+        private void AssignBuildingPrefabToCursor()
+        {
+            if (m_buildingPrefab == null)
+            {
+                Debug.LogError("Building Prefab is null!");
+                return;
+            }
+            m_assignToCursorEvent.Raise(m_buildingPrefab);
         }
     }
 }
