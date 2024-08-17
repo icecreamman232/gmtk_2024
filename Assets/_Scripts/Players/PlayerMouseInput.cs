@@ -70,7 +70,7 @@ namespace JustGame.Scripts.Player
             
             //Set state to "Building" which require player to go nearby and build it
             var controller = m_assignedBuilding.GetComponent<BuildingController>();
-            controller.SetBuildingState(BuildingState.BUILDING);
+            controller.SetBuildingState(BuildingState.READY_TO_BUILD);
             
             m_assignedBuilding.transform.parent = null;
             m_assignedBuilding = null;

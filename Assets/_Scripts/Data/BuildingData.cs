@@ -9,6 +9,7 @@ namespace JustGame.Scripts.Data
         public Color AvailableColor;
         public GameObject Prefab;
         public Sprite Icon;
+        public float BuildTime;
     }
 }
 

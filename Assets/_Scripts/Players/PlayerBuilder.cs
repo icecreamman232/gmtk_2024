@@ -1,3 +1,4 @@
+using JustGame.Scripts.Defense;
 using JustGame.Scripts.Managers;
 using UnityEngine;
 
@@ -13,7 +14,7 @@ namespace JustGame.Scripts.Player
             if (LayerManager.IsInLayerMask(other.gameObject.layer, m_buildableLayerMask))
             {
                 m_lastBuildingInteract = other;
-                ActivateBuilding();
+                ActivateBuilding(other);
             }
         }
 
@@ -23,14 +24,24 @@ namespace JustGame.Scripts.Player
             DeactivateBuilding();
         }
 
-        private void ActivateBuilding()
+        private void ActivateBuilding(Collider2D other)
         {
-            Debug.Log("Activate");
+            var controller = other.gameObject.GetComponentInParent<BuildingController>();
+
+            if (controller.CurrentState == BuildingState.READY_TO_BUILD)
+            {
+                controller.SetBuildingState(BuildingState.BUILDING);
+            }
         }
 
         private void DeactivateBuilding()
         {
-            Debug.Log("DeActivate");
+            var controller = m_lastBuildingInteract.gameObject.GetComponentInParent<BuildingController>();
+
+            if (controller.CurrentState == BuildingState.BUILDING)
+            {
+                controller.SetBuildingState(BuildingState.READY_TO_BUILD);
+            }
         }
     }
 }
