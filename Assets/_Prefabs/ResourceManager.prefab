@@ -44,4 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbc26605abca91845804d6ae07e59456, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_updateGoldUIEvent: {fileID: 11400000, guid: 3eed7b9936b6c5441bd0fa15c874bd42, type: 2}
   m_curGold: 300
