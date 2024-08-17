@@ -35,6 +35,7 @@ namespace JustGame.Scripts.Defense
         public BuildingState CurrentState => m_curState;
 
         public int Price => m_data.Price;
+        public Color IconColor => m_data.AvailableColor;
         
         public bool IsPermit
         {
