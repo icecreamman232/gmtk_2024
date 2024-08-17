@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: BrickWallData
   m_EditorClassIdentifier: 
   ID: BrickWall
+  BuildingName: Brick Wall
   AvailableColor: {r: 0.84705883, g: 0.25490198, b: 0.13333334, a: 1}
   Prefab: {fileID: 6325449408471101574, guid: 146249b3fd9454c4c84dace4d2a50513, type: 3}
   Icon: {fileID: -885057463, guid: dcc928c02e542834199d6efe6c42de7f, type: 3}

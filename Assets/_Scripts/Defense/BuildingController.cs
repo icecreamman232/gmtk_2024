@@ -1,6 +1,7 @@
 using System;
 using JustGame.Scripts.Data;
 using JustGame.Scripts.Managers;
+using JustGame.Scripts.ScriptableEvent;
 using JustGame.Scripts.UI;
 using UnityEngine;
 
@@ -23,6 +24,7 @@ namespace JustGame.Scripts.Defense
         [SerializeField] private BuildingData m_data;
         [SerializeField] private BuildingTimeBarUI m_timeBar;
         [SerializeField] private BuildingHealth m_health;
+        [SerializeField] private OnClickBuildingEvent m_onClickBuildingEvent;
         
         private float m_curBuildTime;
         
@@ -65,6 +67,17 @@ namespace JustGame.Scripts.Defense
                 case BuildingState.DAMAGED:
                     break;
             }
+        }
+        
+        
+        public void OnBeingClickedOn()
+        {
+            var newEvent = new OnClickBuildingEventData
+            {
+                BuildingData = m_data
+            };
+            
+            m_onClickBuildingEvent.Raise(newEvent);
         }
         
         public void SetBuildingState(BuildingState newState)

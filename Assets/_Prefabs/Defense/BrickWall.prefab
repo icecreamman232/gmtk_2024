@@ -54,6 +54,7 @@ MonoBehaviour:
   m_data: {fileID: 11400000, guid: fcc0d79e6099e77459df8f530b2f764e, type: 2}
   m_timeBar: {fileID: 3516664301007235846}
   m_health: {fileID: -5162002653906295602}
+  m_onClickBuildingEvent: {fileID: 11400000, guid: bac03a9e7c336934dae4ab55d32d7515, type: 2}
 --- !u!114 &-5162002653906295602
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -32,6 +32,17 @@ namespace JustGame.Scripts.Player
                 {
                     PlaceBuildingIntoWorld();
                 }
+                else
+                {
+                    if (IsClickOnBuildingInWorld(out var result))
+                    {
+                        var controller = result.transform.parent.GetComponent<BuildingController>();
+                        if (controller != null)
+                        {
+                            controller.OnBeingClickedOn();
+                        }
+                    }
+                }
             }
 
             if (m_assignedBuilding != null)
@@ -40,6 +51,19 @@ namespace JustGame.Scripts.Player
             }
         }
 
+        private bool IsClickOnBuildingInWorld(out Collider2D resultCollider)
+        {
+            resultCollider = null;
+            var result =Physics2D.Raycast(GetWorldMousePos(), Vector2.down, 10,LayerManager.BuildingLayerMask);
+            if (result.collider != null)
+            {
+                resultCollider = result.collider;
+                return true;
+            }
+
+            return false;
+        }
+        
         private Vector3 GetWorldMousePos()
         {
             var pos = m_mainCamera.ScreenToWorldPoint(Input.mousePosition);

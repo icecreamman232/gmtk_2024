@@ -6,6 +6,7 @@ namespace JustGame.Scripts.Data
     public class BuildingData : ScriptableObject
     {
         public string ID;
+        public string BuildingName;
         public Color AvailableColor;
         public GameObject Prefab;
         public Sprite Icon;
