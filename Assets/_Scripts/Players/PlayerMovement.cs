@@ -24,15 +24,13 @@ namespace JustGame.Scripts.Player
             //Right click
             if (Input.GetMouseButtonDown(1))
             {
-                m_destinationPos = GetWorldMousePos();
+                MovePlayerToPosition();
             }
         }
 
-        private Vector2 GetWorldMousePos()
+        private void MovePlayerToPosition()
         {
-            var pos = m_mainCamera.ScreenToWorldPoint(Input.mousePosition);
-            pos.z = 0;
-            return pos;
+            m_destinationPos = m_mainCamera.ScreenToWorldPoint(Input.mousePosition);
         }
 
         private void UpdateMovement()
