@@ -48,19 +48,25 @@ namespace JustGame.Scripts.Player
             if (m_curPos.x >= m_worldBoundary.x/2)
             {
                 m_curPos.x = m_worldBoundary.x/2;
+                m_destinationPos = m_curPos;
             }
             if (m_curPos.x <= -m_worldBoundary.x/2)
             {
                 m_curPos.x = -m_worldBoundary.x/2;
+                m_destinationPos = m_curPos;
             }
             if (m_curPos.y >= m_worldBoundary.y/2)
             {
                 m_curPos.y = m_worldBoundary.y/2;
+                m_destinationPos = m_curPos;
             }
             if (m_curPos.y <= -m_worldBoundary.y/2)
             {
                 m_curPos.y = -m_worldBoundary.y/2;
+                m_destinationPos = m_curPos;
             }
+
+            
             transform.position = m_curPos;
         }
 
