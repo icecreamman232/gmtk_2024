@@ -9,9 +9,10 @@ namespace JustGame.Scripts.Enemy
 {
     public class EnemyHealth : MonoBehaviour, Damageable
     {
+        [SerializeField] private EnemyMovement m_movement;
         [SerializeField] private float m_maxHealth;
         [SerializeField] private float m_curHealth;
-        [SerializeField] private EnemyHealthBarUI m_healthBar;
+        [SerializeField] private HealthBarUI m_healthBar;
 
         private bool m_isInvulnerable;
 
@@ -48,6 +49,7 @@ namespace JustGame.Scripts.Enemy
 
         private void Kill()
         {
+            m_movement.StopMoving();
             gameObject.SetActive(false);
         }
         

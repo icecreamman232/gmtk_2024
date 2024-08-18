@@ -1,4 +1,5 @@
 using JustGame.Scripts.Data;
+using JustGame.Scripts.Enemy;
 using UnityEngine;
 using Random = UnityEngine.Random;
 

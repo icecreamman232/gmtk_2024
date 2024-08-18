@@ -1,3 +1,4 @@
+using System;
 using JustGame.Scripts.Defense;
 using JustGame.Scripts.Managers;
 using UnityEngine;
@@ -11,7 +12,10 @@ namespace JustGame.Scripts.Damage
         [SerializeField] private float m_minDamage;
         [SerializeField] private float m_maxDamage;
         [SerializeField] private LayerMask m_targetMask;
+        [SerializeField] private Collider2D m_collider2D;
 
+        public Collider2D Collider2D => m_collider2D == null ? GetComponent<Collider2D>() : m_collider2D;
+        
         private float GetDamage()
         {
             return Random.Range(m_minDamage, m_maxDamage);
@@ -25,12 +29,23 @@ namespace JustGame.Scripts.Damage
             }
         }
 
+        private void OnTriggerStay2D(Collider2D other)
+        {
+            if (LayerManager.IsInLayerMask(other.gameObject.layer, m_targetMask))
+            {
+                Hit(other);
+            }
+        }
+
         private void Hit(Collider2D other)
         {
             var damage = GetDamage();
+            
             var damageComponent = other.gameObject.GetComponentInParent<Damageable>();
+            
             if (damageComponent != null)
             {
+                Debug.Log("Deal Damage");
                 damageComponent.TakeDamage(damage,m_invulnerableDuration,this.transform.parent.gameObject);
             }
         }

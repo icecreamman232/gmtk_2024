@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 namespace JustGame.Scripts.UI
 {
-    public class EnemyHealthBarUI : MonoBehaviour
+    public class HealthBarUI : MonoBehaviour
     {
         [SerializeField] private CanvasGroup m_canvasGroup;
         [SerializeField] private Image m_healthBar;

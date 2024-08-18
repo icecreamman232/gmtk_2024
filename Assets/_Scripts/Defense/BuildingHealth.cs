@@ -1,4 +1,6 @@
 using System.Collections;
+using JustGame.Scripts.Managers;
+using JustGame.Scripts.UI;
 using UnityEngine;
 
 namespace JustGame.Scripts.Defense
@@ -7,6 +9,7 @@ namespace JustGame.Scripts.Defense
     {
         [SerializeField] private float m_maxHealth;
         [SerializeField] private float m_curHealth;
+        [SerializeField] private HealthBarUI m_healthBar;
 
         private bool m_isInvulnerable;
 
@@ -23,6 +26,7 @@ namespace JustGame.Scripts.Defense
             if (m_curHealth <= 0) return;
 
             m_curHealth -= damage;
+            m_healthBar.UpdateHealthBar(MathHelpers.Remap(m_curHealth,0,m_maxHealth,0,1));
 
             if (m_curHealth <= 0)
             {

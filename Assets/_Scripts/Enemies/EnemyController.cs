@@ -1,34 +1,47 @@
-using JustGame.Scripts.Enemy;
 using JustGame.Scripts.World;
 using UnityEngine;
 
-public class EnemyController : MonoBehaviour
+namespace JustGame.Scripts.Enemy
 {
-    [SerializeField] private EnemyMovement m_movement;
-
-    private PointController m_targetPoint;
+    public class EnemyController : MonoBehaviour
+    {
+        [SerializeField] protected EnemyMovement m_movement;
     
-    public void Initialize(PointController startPoint)
-    {
-        m_targetPoint = startPoint.NextPoint;
-        m_movement.Initialize(this);
-        m_movement.MoveTo(m_targetPoint.transform);
-    }
-
-    public void RequestNextPoint()
-    {
-        //Last point so we stop here
-        if (m_targetPoint.NextPoint == null)
+        protected PointController m_targetPoint;
+    
+        public virtual void Initialize(PointController startPoint)
         {
-            m_movement.StopMoving();
-            gameObject.SetActive(false);
-            Destroy(gameObject);
-        }
-        else
-        {
-            //Move to next point
-            m_targetPoint = m_targetPoint.NextPoint;
+            m_targetPoint = startPoint.NextPoint;
+            m_movement.Initialize(this);
             m_movement.MoveTo(m_targetPoint.transform);
+            m_movement.OnHitObstacle += OnHitObstacle;
+        }
+
+        protected virtual void OnHitObstacle(Collider2D obstacle)
+        {
+        
+        }
+    
+        public virtual void RequestNextPoint()
+        {
+            //Last point so we stop here
+            if (m_targetPoint.NextPoint == null)
+            {
+                m_movement.StopMoving();
+                gameObject.SetActive(false);
+                Destroy(gameObject);
+            }
+            else
+            {
+                //Move to next point
+                m_targetPoint = m_targetPoint.NextPoint;
+                m_movement.MoveTo(m_targetPoint.transform);
+            }
+        }
+
+        private void OnDestroy()
+        {
+            m_movement.OnHitObstacle -= OnHitObstacle;
         }
     }
 }
