@@ -10,6 +10,8 @@ namespace JustGame.Scripts.World
 {
     public class MonsterSpawner : MonoBehaviour
     {
+        [Header("Debugs")] 
+        [SerializeField] private bool m_canSpawn;
         [Header("Monster Numbers")]
         [SerializeField] private int m_spawnedNumber;
         [SerializeField] private int m_aliveNumber;
@@ -41,6 +43,7 @@ namespace JustGame.Scripts.World
         {
             m_aliveMonsterList = new HashSet<EnemyHealth>();
             m_aliveEliteMonsterList = new HashSet<EnemyHealth>();
+            m_canSpawn = true;
         }
 
         private void OnEnable()
@@ -71,6 +74,8 @@ namespace JustGame.Scripts.World
 
         private void Update()
         {
+            if (!m_canSpawn) return;
+            
             m_delayTimer += Time.deltaTime;
             m_upgradeTimer += Time.deltaTime;
             

@@ -43,8 +43,21 @@ namespace JustGame.Scripts.Enemy
         private void Update()
         {
             if (m_target == null) return;
+            
+            if (CheckObstacle())
+            {
+                StopMoving();
+            }
+            else
+            {
+                //Resume moving to target if obstacle got destroyed
+                if (!m_shouldMove && m_target!=null)
+                {
+                    MoveTo(m_target);
+                }
+            }
+            
             if (!m_shouldMove) return;
-
             UpdateMovement();
         }
 
@@ -62,19 +75,6 @@ namespace JustGame.Scripts.Enemy
         
         private void UpdateMovement()
         {
-            if (CheckObstacle())
-            {
-                StopMoving();
-            }
-            else
-            {
-                //Resume moving to target if obstacle got destroyed
-                if (!m_shouldMove && m_target!=null)
-                {
-                    MoveTo(m_target);
-                }
-            }
-            
             transform.position =
                 Vector2.MoveTowards(transform.position, m_target.position, Time.deltaTime * m_moveSpeed);
             if (Vector2.Distance(transform.position, m_target.position) <= 1)
