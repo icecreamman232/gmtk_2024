@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using JustGame.Scripts.Data;
 using JustGame.Scripts.Managers;
@@ -14,12 +15,26 @@ namespace JustGame.Scripts.Defense
         [SerializeField] private float m_curHealth;
         [SerializeField] private HealthBarUI m_healthBar;
 
+        public Action OnDeath;
+
+        public float CurrentHealth => m_curHealth;
+        public float MaxHealth => m_maxHealth;
+        
         private bool m_isInvulnerable;
 
         public void Initialize(float maxHealth)
         {
             m_maxHealth = maxHealth;
             m_curHealth = maxHealth;
+        }
+
+        public void CustomHealing(float healAmount)
+        {
+            m_curHealth += healAmount;
+            if (m_curHealth >= m_maxHealth)
+            {
+                m_curHealth = m_maxHealth;
+            }
         }
 
         public void TakeDamage(AttackType atkType, float damage, float invulnerableDuration, GameObject instigator)
@@ -49,7 +64,8 @@ namespace JustGame.Scripts.Defense
 
         private void Kill()
         {
-            gameObject.SetActive(false);
+            OnDeath?.Invoke();
+            Destroy(this.gameObject);
         }
         
         private IEnumerator OnInvulnerable(float duration)
