@@ -17,3 +17,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6733553d90f6472489203cfa6b738997, type: 2}
   OffensiveBuilding:
   - {fileID: 11400000, guid: d826a1db0629b8540af425ae082cf769, type: 2}
+  - {fileID: 11400000, guid: 38fc8fc858ff99b45b4fcf50663c9368, type: 2}

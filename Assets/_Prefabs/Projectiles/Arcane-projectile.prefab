@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8627065449633102619}
   - component: {fileID: 305507315056904283}
   m_Layer: 8
-  m_Name: Arrow-projectile
+  m_Name: Arcane-projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_damageArea: {fileID: 4337771879241795728}
   m_offsetRot: 0
-  m_moveSpeed: 4
+  m_moveSpeed: 1.5
   m_distanceToStop: 0.5
 --- !u!1 &4651808370341027569
 GameObject:
@@ -124,7 +124,7 @@ SpriteRenderer:
   m_SortingLayerID: 1148752447
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 208504313, guid: 3630642a471968941bfac60abb925b08, type: 3}
+  m_Sprite: {fileID: -1466177631, guid: 3630642a471968941bfac60abb925b08, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -167,7 +167,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.00506413, y: -0.0447793}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -178,7 +178,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.39590764, y: 0.19293213}
+  m_Size: {x: 0.23, y: 0.23}
   m_EdgeRadius: 0
 --- !u!114 &4337771879241795728
 MonoBehaviour:
@@ -192,10 +192,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 537bf7463c303114aa0baa2458616b2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_attackType: 0
+  m_attackType: 2
   m_invulnerableDuration: 0.3
-  m_minDamage: 20
-  m_maxDamage: 35
+  m_minDamage: 50
+  m_maxDamage: 65
   m_targetMask:
     serializedVersion: 2
     m_Bits: 256
