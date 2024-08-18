@@ -68,6 +68,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31ce04381d616064793946ef84e4ed18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_damageArmorTable: {fileID: 11400000, guid: 745bb19a923408849b0e7c3ba301de1b, type: 2}
+  m_armorType: 1
   m_maxHealth: 0
   m_curHealth: 0
   m_healthBar: {fileID: 5125899092764556112}

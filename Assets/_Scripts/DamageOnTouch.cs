@@ -1,4 +1,5 @@
 using System;
+using JustGame.Scripts.Data;
 using JustGame.Scripts.Defense;
 using JustGame.Scripts.Managers;
 using UnityEngine;
@@ -8,6 +9,7 @@ namespace JustGame.Scripts.Damage
 {
     public class DamageOnTouch : MonoBehaviour
     {
+        [SerializeField] private AttackType m_attackType;
         [SerializeField] private float m_invulnerableDuration;
         [SerializeField] private float m_minDamage;
         [SerializeField] private float m_maxDamage;
@@ -48,7 +50,7 @@ namespace JustGame.Scripts.Damage
             {
                 //Debug.Log("Deal Damage");
                 OnHit?.Invoke(other);
-                damageComponent.TakeDamage(damage,m_invulnerableDuration,this.transform.parent.gameObject);
+                damageComponent.TakeDamage(m_attackType, damage,m_invulnerableDuration,this.transform.parent.gameObject);
             }
         }
     }

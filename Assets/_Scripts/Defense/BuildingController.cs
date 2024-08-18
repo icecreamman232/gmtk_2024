@@ -49,8 +49,11 @@ namespace JustGame.Scripts.Defense
             {
                 m_health.Initialize(m_data.DefenseData.MaxHP);
             }
+            else
+            {
+                m_health.Initialize(m_data.OffenseData.MaxHP);
+            }
         }
-
 
         private void Update()
         {

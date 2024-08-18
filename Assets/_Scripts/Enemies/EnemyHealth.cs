@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using JustGame.Scripts.Data;
 using JustGame.Scripts.Defense;
 using JustGame.Scripts.Managers;
 using JustGame.Scripts.ScriptableEvent;
@@ -10,13 +11,19 @@ namespace JustGame.Scripts.Enemy
 {
     public class EnemyHealth : MonoBehaviour, Damageable
     {
-        [SerializeField] private float m_scaleLevelPercent;
-        [SerializeField] private EnemyMovement m_movement;
+        [Header("Params")] 
+        [SerializeField] private ArmorType m_armorType;
         [SerializeField] private float m_maxHealth;
         [SerializeField] private float m_curHealth;
+        [SerializeField] private bool m_isElite;
+        [Header("Scale with Level")]
+        [SerializeField] private float m_scaleLevelPercent;
+
+        [Header("Refs")] 
+        [SerializeField] private DamageArmorTable m_damageArmorTable;
+        [SerializeField] private EnemyMovement m_movement;
         [SerializeField] private HealthBarUI m_healthBar;
         [SerializeField] private EnemyDeathEvent m_enemyDeathEvent;
-        [SerializeField] private bool m_isElite;
 
         private bool m_isInvulnerable;
 
@@ -42,13 +49,14 @@ namespace JustGame.Scripts.Enemy
             m_curHealth = maxHealth;
         }
 
-        public void TakeDamage(float damage, float invulnerableDuration, GameObject instigator)
+        public void TakeDamage(AttackType atkType, float damage, float invulnerableDuration, GameObject instigator)
         {
             if (m_isInvulnerable) return;
 
             if (m_curHealth <= 0) return;
-
-            m_curHealth -= damage;
+            
+            m_curHealth -= CalculateFinalDamage(damage,atkType, m_armorType);
+            
             m_healthBar.UpdateHealthBar(MathHelpers.Remap(m_curHealth,0,m_maxHealth,0,1));
             
             if (m_curHealth <= 0)
@@ -59,6 +67,12 @@ namespace JustGame.Scripts.Enemy
             {
                 StartCoroutine(OnInvulnerable(invulnerableDuration));
             }
+        }
+
+        private float CalculateFinalDamage(float damage,AttackType atkType, ArmorType armorType)
+        {
+            var finalDamage = m_damageArmorTable.GetFinalDamage(damage, atkType, armorType);
+            return finalDamage;
         }
 
         public void ManualKill()
