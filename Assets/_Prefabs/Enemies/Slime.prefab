@@ -91,7 +91,8 @@ MonoBehaviour:
   m_maxHealth: 50
   m_curHealth: 0
   m_healthBar: {fileID: 7434163823679057631}
-  m_enemyDeathEvent: {fileID: 11400000, guid: 9cef10b83a664864ea65f2debd66b261, type: 2}
+  m_enemyDeathEvent: {fileID: 11400000, guid: 610d7fdaa741ea34fb799ebd43918782, type: 2}
+  m_isElite: 0
 --- !u!114 &8344989712290514774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -289,8 +290,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1645578597
-  m_SortingLayer: 1
+  m_SortingLayerID: 1148752447
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -936073156, guid: d07e3d70ed18b094684ac6cc266a20ee, type: 3}
   m_Color: {r: 0.043488227, g: 0.764151, b: 0, a: 1}

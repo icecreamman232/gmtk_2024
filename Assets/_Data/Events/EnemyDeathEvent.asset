@@ -9,6 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 371d44c975727d048a102ceeefc2971a, type: 3}
+  m_Script: {fileID: 11500000, guid: cc4a32391bc1ba34386936b44bf6e2af, type: 3}
   m_Name: EnemyDeathEvent
   m_EditorClassIdentifier: 

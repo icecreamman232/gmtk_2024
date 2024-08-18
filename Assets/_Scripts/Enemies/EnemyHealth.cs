@@ -15,10 +15,12 @@ namespace JustGame.Scripts.Enemy
         [SerializeField] private float m_maxHealth;
         [SerializeField] private float m_curHealth;
         [SerializeField] private HealthBarUI m_healthBar;
-        [SerializeField] private ActionEvent m_enemyDeathEvent;
+        [SerializeField] private EnemyDeathEvent m_enemyDeathEvent;
+        [SerializeField] private bool m_isElite;
 
         private bool m_isInvulnerable;
 
+        public bool IsElite => m_isElite;
         public Action OnDeath;
 
         //Placeholder
@@ -67,7 +69,7 @@ namespace JustGame.Scripts.Enemy
 
         private void Kill()
         {
-            m_enemyDeathEvent.Raise();
+            m_enemyDeathEvent.Raise(this);
             OnDeath?.Invoke();
             m_movement.StopMoving();
             Destroy(gameObject);

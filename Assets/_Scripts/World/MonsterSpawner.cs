@@ -13,11 +13,13 @@ namespace JustGame.Scripts.World
         [Header("Monster Numbers")]
         [SerializeField] private int m_spawnedNumber;
         [SerializeField] private int m_aliveNumber;
+        [SerializeField] private int m_aliveEliteNumber;
         [SerializeField] private int m_deadNumber;
+        [SerializeField] private int m_deadEliteNumber;
         
         [SerializeField] private PointController m_startingPoint;
         [SerializeField] private MonsterContainer m_monsterContainer;
-        [SerializeField] private ActionEvent m_enemyDeathEvent;
+        [SerializeField] private EnemyDeathEvent m_enemyDeathEvent;
         
         [Header("Placeholder Data")] 
         [SerializeField] private int m_monsterLevel;
@@ -32,11 +34,13 @@ namespace JustGame.Scripts.World
 
         private float m_delayTimer;
         private float m_upgradeTimer;
-        private List<EnemyHealth> m_aliveMonsterList;
+        private HashSet<EnemyHealth> m_aliveMonsterList;
+        private HashSet<EnemyHealth> m_aliveEliteMonsterList;
 
         private void Start()
         {
-            m_aliveMonsterList = new List<EnemyHealth>();
+            m_aliveMonsterList = new HashSet<EnemyHealth>();
+            m_aliveEliteMonsterList = new HashSet<EnemyHealth>();
         }
 
         private void OnEnable()
@@ -44,10 +48,20 @@ namespace JustGame.Scripts.World
             m_enemyDeathEvent.AddListener(OnEnemyDeath);
         }
 
-        private void OnEnemyDeath()
+        private void OnEnemyDeath(EnemyHealth enemyHealth)
         {
-            m_deadNumber++;
-            m_aliveNumber--;
+            if (enemyHealth.IsElite)
+            {
+                m_aliveEliteMonsterList.Remove(enemyHealth);
+                m_aliveEliteNumber--;
+                m_deadEliteNumber++;
+            }
+            else
+            {
+                m_deadNumber++;
+                m_aliveNumber--;
+                m_aliveMonsterList.Remove(enemyHealth);
+            }
         }
 
         private void OnDisable()
@@ -81,15 +95,21 @@ namespace JustGame.Scripts.World
         private void MergeMonster()
         {
             Debug.Log($"<color=orange>Monsters has been merged into bigger</color>");
-            var aliveList = new List<EnemyHealth>(m_aliveMonsterList.GetRange(m_numberToMerge, m_aliveMonsterList.Count - m_numberToMerge));
-            var deadList = new List<EnemyHealth>(m_aliveMonsterList.GetRange(0, m_numberToMerge));
-            
-            m_aliveMonsterList.Clear();
-            m_aliveMonsterList.AddRange(aliveList);
-
-            foreach (var tobeDeadEnemy in deadList)
+            var count = m_numberToMerge;
+            var listToKill = new List<EnemyHealth>();
+            foreach (var alive in m_aliveMonsterList)
             {
-                tobeDeadEnemy.ManualKill();
+                listToKill.Add(alive);
+                count--;
+                if (count <= 0)
+                {
+                    break;
+                }
+            }
+
+            foreach (var toKill in listToKill)
+            {
+                toKill.ManualKill();
             }
 
             SpawnSpecificMonster(m_bigSlimePrefab);
@@ -112,10 +132,10 @@ namespace JustGame.Scripts.World
             var enemyController = monster.GetComponent<EnemyController>();
             enemyController.Initialize(m_startingPoint, m_monsterLevel);
 
-            m_aliveMonsterList.Add(monster.GetComponent<EnemyHealth>());
+            m_aliveEliteMonsterList.Add(monster.GetComponent<EnemyHealth>());
             
             m_spawnedNumber++;
-            m_aliveNumber++;
+            m_aliveEliteNumber++;
         }
         
         private void SpawnMonster()
