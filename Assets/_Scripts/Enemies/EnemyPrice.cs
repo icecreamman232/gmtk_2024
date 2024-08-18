@@ -16,7 +16,10 @@ namespace JustGame.Scripts.Enemy
 
         private void OnDestroy()
         {
-            m_health.OnDeath -= OnEarnGold;
+            if(m_health!=null)
+            {
+                m_health.OnDeath -= OnEarnGold;
+            }
         }
 
         private void OnEarnGold()

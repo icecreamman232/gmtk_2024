@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using JustGame.Scripts.Defense;
 using JustGame.Scripts.Managers;
+using JustGame.Scripts.ScriptableEvent;
 using JustGame.Scripts.UI;
 using UnityEngine;
 
@@ -14,6 +15,7 @@ namespace JustGame.Scripts.Enemy
         [SerializeField] private float m_maxHealth;
         [SerializeField] private float m_curHealth;
         [SerializeField] private HealthBarUI m_healthBar;
+        [SerializeField] private ActionEvent m_enemyDeathEvent;
 
         private bool m_isInvulnerable;
 
@@ -57,8 +59,15 @@ namespace JustGame.Scripts.Enemy
             }
         }
 
+        public void ManualKill()
+        {
+            Kill();
+        }
+        
+
         private void Kill()
         {
+            m_enemyDeathEvent.Raise();
             OnDeath?.Invoke();
             m_movement.StopMoving();
             Destroy(gameObject);

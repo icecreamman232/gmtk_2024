@@ -17,6 +17,15 @@ namespace JustGame.Scripts.Player
                 ActivateBuilding(other);
             }
         }
+        
+        private void OnTriggerStay2D(Collider2D other)
+        {
+            if (LayerManager.IsInLayerMask(other.gameObject.layer, m_buildableLayerMask))
+            {
+                m_lastBuildingInteract = other;
+                ActivateBuilding(other);
+            }
+        }
 
         private void OnTriggerExit2D(Collider2D other)
         {
