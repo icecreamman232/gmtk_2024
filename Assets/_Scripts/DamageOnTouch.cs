@@ -15,6 +15,7 @@ namespace JustGame.Scripts.Damage
         [SerializeField] private Collider2D m_collider2D;
 
         public Collider2D Collider2D => m_collider2D == null ? GetComponent<Collider2D>() : m_collider2D;
+        public Action<Collider2D> OnHit;
         
         private float GetDamage()
         {
@@ -45,7 +46,8 @@ namespace JustGame.Scripts.Damage
             
             if (damageComponent != null)
             {
-                Debug.Log("Deal Damage");
+                //Debug.Log("Deal Damage");
+                OnHit?.Invoke(other);
                 damageComponent.TakeDamage(damage,m_invulnerableDuration,this.transform.parent.gameObject);
             }
         }

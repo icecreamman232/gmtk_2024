@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3131486112530177405}
   - component: {fileID: 8164876452892502693}
   - component: {fileID: 8344989712290514774}
+  - component: {fileID: 1383550464007758166}
   m_Layer: 8
   m_Name: Slime
   m_TagString: Untagged
@@ -51,6 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_movement: {fileID: 3131486112530177405}
+  m_health: {fileID: 8164876452892502693}
   m_enemyAttack: {fileID: 8344989712290514774}
 --- !u!114 &3131486112530177405
 MonoBehaviour:
@@ -64,6 +66,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1ded9f6db589224c992e325e9ccb7f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_scaleSpeed: 10
   m_moveSpeed: 1
   m_target: {fileID: 0}
   m_offsetRaycast: {x: 0, y: 0.15, z: 0}
@@ -83,6 +86,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0c2d1837d23e524284f7b72e75ae550, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_scaleLevelPercent: 10
   m_movement: {fileID: 3131486112530177405}
   m_maxHealth: 50
   m_curHealth: 0
@@ -102,6 +106,19 @@ MonoBehaviour:
   m_damageArea: {fileID: 5372938767213212861}
   m_atkDuration: 0.15
   m_delayBetween2Hit: 0.3
+--- !u!114 &1383550464007758166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 549704322990772745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a212449e8f64d4d468851c22a504740b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_gold: 10
 --- !u!1 &1821955850144936394
 GameObject:
   m_ObjectHideFlags: 0

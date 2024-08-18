@@ -1,9 +1,11 @@
+using System;
 using UnityEngine;
 
 namespace JustGame.Scripts.Damage
 {
     public class Projectile : MonoBehaviour
     {
+        [SerializeField] private DamageOnTouch m_damageArea;
         [SerializeField] protected float m_offsetRot;
         [SerializeField] protected float m_moveSpeed;
         [SerializeField] protected float m_distanceToStop;
@@ -11,6 +13,16 @@ namespace JustGame.Scripts.Damage
         protected Vector2 m_targetPosition;
 
         protected bool m_shouldMove;
+
+        private void OnEnable()
+        {
+            m_damageArea.OnHit += OnHitTarget;
+        }
+
+        private void OnDisable()
+        {
+            m_damageArea.OnHit -= OnHitTarget;
+        }
 
         protected virtual void Update()
         {
@@ -35,6 +47,11 @@ namespace JustGame.Scripts.Damage
         protected virtual void DestroyProjectile()
         {
             gameObject.SetActive(false);
+        }
+
+        protected virtual void OnHitTarget(Collider2D target)
+        {
+            DestroyProjectile();
         }
 
         protected virtual void UpdateMoment()

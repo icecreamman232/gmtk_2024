@@ -9,6 +9,7 @@ namespace JustGame.Scripts.Enemy
 {
     public class EnemyHealth : MonoBehaviour, Damageable
     {
+        [SerializeField] private float m_scaleLevelPercent;
         [SerializeField] private EnemyMovement m_movement;
         [SerializeField] private float m_maxHealth;
         [SerializeField] private float m_curHealth;
@@ -16,10 +17,19 @@ namespace JustGame.Scripts.Enemy
 
         private bool m_isInvulnerable;
 
+        public Action OnDeath;
+
         //Placeholder
         private void Start()
         {
             Initialize(m_maxHealth);
+        }
+
+        public void SetHealthBasedOnLevel(int level)
+        {
+            if (level <= 1) return;
+            m_maxHealth += m_maxHealth * (level * m_scaleLevelPercent / 100);
+            m_curHealth = m_maxHealth;
         }
 
         public void Initialize(float maxHealth)
@@ -49,8 +59,9 @@ namespace JustGame.Scripts.Enemy
 
         private void Kill()
         {
+            OnDeath?.Invoke();
             m_movement.StopMoving();
-            gameObject.SetActive(false);
+            Destroy(gameObject);
         }
         
         private IEnumerator OnInvulnerable(float duration)

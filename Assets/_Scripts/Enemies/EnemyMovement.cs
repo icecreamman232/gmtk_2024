@@ -5,6 +5,7 @@ namespace JustGame.Scripts.Enemy
 {
     public class EnemyMovement : MonoBehaviour
     {
+        [SerializeField] private float m_scaleSpeed;
         [SerializeField] private float m_moveSpeed;
         [SerializeField] private Transform m_target;
         [SerializeField] private Vector3 m_offsetRaycast;
@@ -19,9 +20,13 @@ namespace JustGame.Scripts.Enemy
 
         public Action<Collider2D> OnHitObstacle;
         
-        public void Initialize(EnemyController enemyController)
+        public void Initialize(EnemyController enemyController, int level)
         {
             m_controller = enemyController;
+            if (level > 1)
+            {
+                m_moveSpeed += m_moveSpeed * level * m_scaleSpeed / 100;
+            }
         }
 
         public void MoveTo(Transform targetTransform)

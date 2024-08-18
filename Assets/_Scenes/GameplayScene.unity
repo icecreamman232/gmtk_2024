@@ -1421,7 +1421,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_startingPoint: {fileID: 260808814}
   m_monsterContainer: {fileID: 11400000, guid: 6cbca617b202db84daeec5de428bddf8, type: 2}
+  m_monsterLevel: 1
+  m_minDelayTime: 0.5
   m_delayBetween2Spawn: 3
+  m_reduceDelayTimeRate: 0.1
+  m_timeToUpgrade: 10
 --- !u!1 &1114734897
 GameObject:
   m_ObjectHideFlags: 0

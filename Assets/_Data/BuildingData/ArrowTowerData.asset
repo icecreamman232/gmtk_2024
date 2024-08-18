@@ -18,6 +18,6 @@ MonoBehaviour:
   Prefab: {fileID: 801622610670715534, guid: a6c44d4589160b04bac3f0cc97181659, type: 3}
   Icon: {fileID: -2047780462, guid: 7d9ad2e059a3c034486ae3ee654e5dee, type: 3}
   BuildTime: 0.5
-  Price: 50
+  Price: 100
   OffenseData: {fileID: 11400000, guid: 26fa500b45ace3144891c1dafe12f422, type: 2}
   DefenseData: {fileID: 0}

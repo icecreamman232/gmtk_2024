@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5851985e705d3454a9c3feeafe5fea30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_damageArea: {fileID: 4337771879241795728}
   m_offsetRot: 0
   m_moveSpeed: 2
   m_distanceToStop: 0.5
@@ -197,3 +198,4 @@ MonoBehaviour:
   m_targetMask:
     serializedVersion: 2
     m_Bits: 256
+  m_collider2D: {fileID: 0}
