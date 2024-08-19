@@ -11,7 +11,7 @@ namespace JustGame.Scripts.Damage
         [SerializeField] protected Transform m_shootPivot;
         [SerializeField] protected Vector2 m_target;
 
-        private bool m_isDelay;
+        protected bool m_isDelay;
 
         protected virtual IEnumerator OnDelayShoot()
         {

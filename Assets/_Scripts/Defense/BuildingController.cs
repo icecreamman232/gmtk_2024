@@ -19,7 +19,6 @@ namespace JustGame.Scripts.Defense
     {
         [SerializeField] private BuildingState m_curState;
         [SerializeField] private bool m_isPermit;
-        [SerializeField] private Sprite m_buildingIcon;
         [SerializeField] private SpriteRenderer m_bodyRenderer;
         [SerializeField] private BuildingData m_data;
         [SerializeField] private BuildingTimeBarUI m_timeBar;
@@ -30,7 +29,7 @@ namespace JustGame.Scripts.Defense
 
         public Action<BuildingState> OnStateChange;
         
-        public Sprite Icon => m_buildingIcon;
+        public Sprite Icon => m_data.Icon;
 
         public BuildingState CurrentState => m_curState;
 

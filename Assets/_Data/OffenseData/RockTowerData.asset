@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b00cdaf3a8f86294193a2bb9ca6e93a1, type: 3}
-  m_Name: ArrowTowerData
+  m_Name: RockTowerData
   m_EditorClassIdentifier: 
-  AttackType: 1
+  AttackType: 0
   ArmorType: 1
-  MaxHP: 200
+  MaxHP: 300

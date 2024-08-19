@@ -1978,6 +1978,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2239848192719456311, guid: 1bf90c6ef9d333747a810bd8d202c0ec, type: 3}
+      propertyPath: m_forceType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2239848192719456311, guid: 1bf90c6ef9d333747a810bd8d202c0ec, type: 3}
+      propertyPath: m_forceBuildingIndex
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5221829754540952135, guid: 1bf90c6ef9d333747a810bd8d202c0ec, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
