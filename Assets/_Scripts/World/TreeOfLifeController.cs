@@ -11,6 +11,12 @@ namespace JustGame.Scripts.World
         [SerializeField] private TreeOfLifeUpgradeData m_treeOfLifeUpgradeData;
         [SerializeField] private SpriteRenderer m_spriteRenderer;
 
+        public string PriceText => m_treeLevel < 5 
+            ? m_treeOfLifeUpgradeData.UpgradePrice[m_treeLevel - 1].ToString() 
+            : m_treeOfLifeUpgradeData.UpgradePrice[4].ToString();
+        public Sprite CurrentTreeIcon => m_treeOfLifeUpgradeData.TreeSprites[m_treeLevel - 1];
+        public Sprite NextTreeIcon => m_treeLevel < 5 ? m_treeOfLifeUpgradeData.TreeSprites[m_treeLevel] : null;
+        
         private void Start()
         {
             m_treeLevel = 1;

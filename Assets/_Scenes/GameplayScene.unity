@@ -1721,6 +1721,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ResourceManager
       objectReference: {fileID: 0}
+    - target: {fileID: 5543403417417049134, guid: 18455a4f35791734794284a9fd531fa5, type: 3}
+      propertyPath: m_curGold
+      value: 9000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
