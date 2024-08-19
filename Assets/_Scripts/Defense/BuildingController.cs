@@ -24,6 +24,7 @@ namespace JustGame.Scripts.Defense
         [SerializeField] private BuildingTimeBarUI m_timeBar;
         [SerializeField] private BuildingHealth m_health;
         [SerializeField] private OnClickBuildingEvent m_onClickBuildingEvent;
+        [SerializeField] private SelectionFrameController m_selectionFrameController;
         
         private float m_curBuildTime;
 
@@ -73,7 +74,11 @@ namespace JustGame.Scripts.Defense
                     break;
             }
         }
-        
+
+        public void Deselect()
+        {
+            m_selectionFrameController.HideSelection();
+        }
         
         public void OnBeingClickedOn()
         {
@@ -81,6 +86,8 @@ namespace JustGame.Scripts.Defense
             {
                 BuildingData = m_data
             };
+            
+            m_selectionFrameController.ShowSelection();
             
             m_onClickBuildingEvent.Raise(newEvent);
         }

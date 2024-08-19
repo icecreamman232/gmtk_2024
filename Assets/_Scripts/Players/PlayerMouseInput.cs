@@ -13,6 +13,7 @@ namespace JustGame.Scripts.Player
         [SerializeField] private Vector3Event m_placeBuildingPosEvent;
 
         private GameObject m_assignedBuilding;
+        private BuildingController m_lastBuildingBeingClicked;
 
         private void OnEnable()
         {
@@ -34,20 +35,33 @@ namespace JustGame.Scripts.Player
                 }
                 else
                 {
-                    if (IsClickOnBuildingInWorld(out var result))
-                    {
-                        var controller = result.transform.parent.GetComponent<BuildingController>();
-                        if (controller != null)
-                        {
-                            controller.OnBeingClickedOn();
-                        }
-                    }
+                    HandleClickOnBuilding();
                 }
             }
 
             if (m_assignedBuilding != null)
             {
                 UpdateAssignBuilding();
+            }
+        }
+
+        private void HandleClickOnBuilding()
+        {
+            if (IsClickOnBuildingInWorld(out var result))
+            {
+                m_lastBuildingBeingClicked = result.transform.parent.GetComponent<BuildingController>();
+                if (m_lastBuildingBeingClicked != null)
+                {
+                    m_lastBuildingBeingClicked.OnBeingClickedOn();
+                }
+            }
+            else
+            {
+                if (m_lastBuildingBeingClicked != null)
+                {
+                    m_lastBuildingBeingClicked.Deselect();
+                    m_lastBuildingBeingClicked = null;
+                }
             }
         }
 
