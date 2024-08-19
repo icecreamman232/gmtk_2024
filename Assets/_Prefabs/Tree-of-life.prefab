@@ -46,13 +46,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_treeLevel: 1
+  m_treeOfLifeUpgradeData: {fileID: 11400000, guid: 9738c8e885fc004419dfa9fbe726e047, type: 2}
   m_spriteRenderer: {fileID: 3926703595644231337}
-  m_treeSprites:
-  - {fileID: 1402150755, guid: 85bb006ff7032e642b818c04a9687824, type: 3}
-  - {fileID: 1668796652, guid: 85bb006ff7032e642b818c04a9687824, type: 3}
-  - {fileID: 362038130, guid: 85bb006ff7032e642b818c04a9687824, type: 3}
-  - {fileID: -920662705, guid: 85bb006ff7032e642b818c04a9687824, type: 3}
-  - {fileID: 1323947150, guid: 85bb006ff7032e642b818c04a9687824, type: 3}
 --- !u!1 &6317483087893714764
 GameObject:
   m_ObjectHideFlags: 0

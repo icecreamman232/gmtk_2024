@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3da752aab76db0f4b9a951731abf8944, type: 3}
+  m_Name: TreeOfLifeData
+  m_EditorClassIdentifier: 
+  UpgradePrice: 2c0100005802000084030000b0040000
+  TreeSprites:
+  - {fileID: 1402150755, guid: 85bb006ff7032e642b818c04a9687824, type: 3}
+  - {fileID: 1668796652, guid: 85bb006ff7032e642b818c04a9687824, type: 3}
+  - {fileID: 362038130, guid: 85bb006ff7032e642b818c04a9687824, type: 3}
+  - {fileID: -920662705, guid: 85bb006ff7032e642b818c04a9687824, type: 3}
+  - {fileID: 1323947150, guid: 85bb006ff7032e642b818c04a9687824, type: 3}

@@ -9,6 +9,7 @@ namespace JustGame.Scripts.Defense
 {
     public class BuildingHealth : MonoBehaviour, Damageable
     {
+        [SerializeField] private BuildingData m_buildingData;
         [SerializeField] private DamageArmorTable m_damageArmorTable;
         [SerializeField] private ArmorType m_armorType;
         [SerializeField] private float m_maxHealth;
@@ -37,13 +38,20 @@ namespace JustGame.Scripts.Defense
             }
         }
 
+        private ArmorType GetArmorType()
+        {
+            return m_buildingData.DefenseData != null 
+                ? m_buildingData.DefenseData.ArmorType 
+                : m_buildingData.OffenseData.ArmorType;
+        }
+
         public void TakeDamage(AttackType atkType, float damage, float invulnerableDuration, GameObject instigator)
         {
             if (m_isInvulnerable) return;
 
             if (m_curHealth <= 0) return;
 
-            m_curHealth -= CalculateFinalDamage(damage, atkType, m_armorType);
+            m_curHealth -= CalculateFinalDamage(damage, atkType, GetArmorType());
             m_healthBar.UpdateHealthBar(MathHelpers.Remap(m_curHealth,0,m_maxHealth,0,1));
 
             if (m_curHealth <= 0)
