@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2db66b9a3916eb4885a5c9aa0b551db, type: 3}
+  m_Name: FarmHouseBuildingData
+  m_EditorClassIdentifier: 
+  ID: FarmHouse
+  BuildingName: Farm House
+  AvailableColor: {r: 0.990566, g: 0.9362575, b: 0.126157, a: 1}
+  Prefab: {fileID: 3920795308512080570, guid: ab75dcf010371c94ab0755c8105468a0, type: 3}
+  Icon: {fileID: -955220016, guid: dcc928c02e542834199d6efe6c42de7f, type: 3}
+  BuildTime: 0.3
+  Price: 50
+  OffenseData: {fileID: 0}
+  DefenseData: {fileID: 11400000, guid: cc8accad5ecb24d4098c1ceb84deae2f, type: 2}
