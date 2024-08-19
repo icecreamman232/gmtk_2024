@@ -24,11 +24,11 @@ namespace JustGame.Scripts.UI
         {
             if (data.BuildingData.DefenseData != null)
             {
-                m_buildingInfoUIPanel.DisplayInfo(data.BuildingData.BuildingName,data.BuildingData.DefenseData.ArmorType);
+                m_buildingInfoUIPanel.DisplayInfo(data.BuildingData.BuildingName,data.BuildingData.DefenseData);
             }
             else if (data.BuildingData.OffenseData != null)
             {
-                m_buildingInfoUIPanel.DisplayInfo(data.BuildingData.BuildingName,data.BuildingData.OffenseData.ArmorType);
+                m_buildingInfoUIPanel.DisplayInfo(data.BuildingData.BuildingName,data.BuildingData.OffenseData);
             }
         }
     }

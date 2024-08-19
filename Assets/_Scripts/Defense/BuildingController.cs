@@ -89,7 +89,7 @@ namespace JustGame.Scripts.Defense
             
             m_selectionFrameController.ShowSelection();
             
-            m_onClickBuildingEvent.Raise(newEvent);
+            m_onClickBuildingEvent.Raise(newEvent);  
         }
         
         public void SetBuildingState(BuildingState newState)
