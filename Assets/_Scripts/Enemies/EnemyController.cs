@@ -15,20 +15,28 @@ namespace JustGame.Scripts.Enemy
     
         public virtual void Initialize(PointController startPoint, int level)
         {
+            m_path = new List<Node>();
             m_targetPoint = startPoint.NextPoint;
             m_health.SetHealthBasedOnLevel(level);
-            FindNewPath();
-
             m_curTargetNodeIndex = 0;
             m_movement.Initialize(this,level);
-            m_movement.MoveTo(GetNextTarget());
-            m_movement.OnHitObstacle += OnHitObstacle;
             
+            if (FindNewPath())
+            {
+                m_movement.MoveTo(GetNextTarget());
+            }
+            m_movement.OnHitObstacle += OnHitObstacle;
         }
 
-        public void FindNewPath()
+        public bool FindNewPath()
         {
             m_path = PathFinding.Instance.FindPath(transform.position, m_targetPoint.transform.position);
+            if (m_path == null)
+            {
+                return false;
+            }
+            
+            return m_path.Count > 0;
         }
 
         public Vector2 GetNextTarget()

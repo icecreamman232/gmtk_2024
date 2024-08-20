@@ -31,6 +31,20 @@ namespace JustGame.Scripts.World
             OnRemoveObstacle?.Invoke();
         }
 
+        public List<Node> FindPath(Vector2 start, Vector2 target, Vector2 tobeObstacle)
+        {
+            var node = m_grid.GetNodeFromWorldPos(tobeObstacle);
+            node.WalkAble = false;
+            var path = FindPath(start, target);
+            if (path == null || path.Count <= 0)
+            {
+                node.WalkAble = true;
+                return null;
+            }
+
+            return path;
+        }
+        
         public List<Node> FindPath(Vector2 start, Vector2 target)
         {
             Node startNode = m_grid.GetNodeFromWorldPos(start);

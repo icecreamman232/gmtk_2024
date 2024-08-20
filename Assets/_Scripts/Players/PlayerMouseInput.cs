@@ -14,6 +14,8 @@ namespace JustGame.Scripts.Player
         [SerializeField] private GameObjectEvent m_buildingBtnToCursorEvent;
         [SerializeField] private Vector3Event m_placeBuildingPosEvent;
         [SerializeField] private Grid m_grid;
+        [SerializeField] private Transform m_startPoint;
+        [SerializeField] private Transform m_endPoint;
 
         private GameObject m_assignedBuilding;
         private BuildingController m_lastBuildingBeingClicked;
@@ -107,6 +109,16 @@ namespace JustGame.Scripts.Player
             var curPos = m_assignedBuilding.transform.position;
             curPos.x = Mathf.Round(curPos.x);
             curPos.y = Mathf.Round(curPos.y);
+
+            //Put building as obstacle and try to find a path, if path is not found then we refuse to place the building
+            var path = PathFinding.Instance.FindPath(m_startPoint.position, m_endPoint.position,curPos);
+            if (path == null || path.Count <= 1)
+            {
+                Destroy(m_assignedBuilding);
+                m_assignedBuilding = null;
+                return;
+            }
+            
             m_assignedBuilding.transform.position = curPos;
             m_placeBuildingPosEvent.Raise(curPos);
             
