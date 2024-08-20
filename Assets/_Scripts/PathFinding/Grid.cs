@@ -1,7 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Grid : MonoBehaviour
+namespace JustGame.Scripts.World
+{
+    public class Grid : MonoBehaviour
 {
     [SerializeField] private int m_gridSizeX;
     [SerializeField]  private int m_gridSizeY;
@@ -23,7 +25,12 @@ public class Grid : MonoBehaviour
 
         int x = Mathf.RoundToInt((m_gridSizeX - 1) * percentX);
         int y = Mathf.RoundToInt((m_gridSizeY - 1) * percentY);
+        
+        //for fraction loss
+        x = x >= m_gridSizeX / 2 ? x + 1 : x;
+        y = y >= m_gridSizeY / 2 ? y + 1 : y;
         return m_grid[x, y];
+        
     }
 
     public List<Node> GetNeighbors(Node node)
@@ -84,9 +91,11 @@ public class Grid : MonoBehaviour
             }
             else
             {
-                Gizmos.color = Color.green;
+                Gizmos.color = node.WalkAble ? Color.green : Color.red;
                 Gizmos.DrawWireCube(node.WorldPosition,Vector3.one);
             }
         }
     }
 }
+}
+

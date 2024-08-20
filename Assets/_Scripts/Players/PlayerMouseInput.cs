@@ -2,6 +2,7 @@ using JustGame.Scripts.Defense;
 using JustGame.Scripts.Managers;
 using JustGame.Scripts.ScriptableEvent;
 using UnityEngine;
+using Grid = JustGame.Scripts.World.Grid;
 
 namespace JustGame.Scripts.Player
 {
