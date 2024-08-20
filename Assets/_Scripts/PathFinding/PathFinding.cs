@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using JustGame.Scripts.Managers;
 using UnityEngine;
@@ -10,9 +11,24 @@ namespace JustGame.Scripts.World
         public Transform Target;
         [SerializeField] private Grid m_grid;
 
+        public Action OnAddObstacle;
+        public Action OnRemoveObstacle;
+        
         private void Update()
         {
             //FindPath(Start.position, Target.position);
+        }
+
+        public void AddObstacle(Vector2 pos)
+        {
+            m_grid.AddObstacle(pos);
+            OnAddObstacle?.Invoke();
+        }
+
+        public void RemoveObstacle(Vector2 pos)
+        {
+            m_grid.RemoveObstacle(pos);
+            OnRemoveObstacle?.Invoke();
         }
 
         public List<Node> FindPath(Vector2 start, Vector2 target)

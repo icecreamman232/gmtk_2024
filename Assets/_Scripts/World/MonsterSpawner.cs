@@ -93,7 +93,7 @@ namespace JustGame.Scripts.World
 
             if (m_aliveNumber >= m_numberToMerge)
             {
-                MergeMonster();
+                //MergeMonster();
             }
         }
 

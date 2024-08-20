@@ -9,28 +9,37 @@ namespace JustGame.Scripts.World
     [SerializeField]  private int m_gridSizeY;
     private Node[,] m_grid;
     public List<Node> Path;
+
+    private int m_halfGridX;
+    private int m_halfGridY;
     
     public void AddObstacle(Vector2 pos)
     {
         var node = GetNodeFromWorldPos(pos);
         node.WalkAble = false;
     }
+
+    public void RemoveObstacle(Vector2 pos)
+    {
+        var node = GetNodeFromWorldPos(pos);
+        node.WalkAble = true;
+    }
     
     public Node GetNodeFromWorldPos(Vector2 worldPos)
     {
-        float percentX = (worldPos.x + m_gridSizeX / 2) / m_gridSizeX;
-        float percentY = (worldPos.y + m_gridSizeY / 2) / m_gridSizeY;
+        float percentX = (worldPos.x + m_halfGridX) / m_gridSizeX;
+        float percentY = (worldPos.y + m_halfGridY) / m_gridSizeY;
         percentX = Mathf.Clamp01(percentX);
         percentY = Mathf.Clamp01(percentY);
 
         int x = Mathf.RoundToInt((m_gridSizeX - 1) * percentX);
         int y = Mathf.RoundToInt((m_gridSizeY - 1) * percentY);
         
-        //for fraction loss
-        x = x >= m_gridSizeX / 2 ? x + 1 : x;
-        y = y >= m_gridSizeY / 2 ? y + 1 : y;
-        return m_grid[x, y];
+        // //for fraction loss
+        x = x >= m_halfGridX ? x + 1 : x;
+        y = y >= m_halfGridY ? y + 1 : y;
         
+        return m_grid[x, y];
     }
 
     public List<Node> GetNeighbors(Node node)
@@ -64,10 +73,13 @@ namespace JustGame.Scripts.World
 
     private void CreateGrid()
     {
+        m_halfGridX = m_gridSizeX / 2;
+        m_halfGridY = m_gridSizeY / 2;
+        
         var gridPos = transform.position;
         Vector2 worldBottomLeft = new Vector2
-            (gridPos.x - m_gridSizeX/2,
-            gridPos.y - m_gridSizeY/2);
+            (gridPos.x - m_halfGridX,
+            gridPos.y - m_halfGridY);
         
         m_grid = new Node[m_gridSizeX, m_gridSizeY];
         for (int x = 0; x < m_gridSizeX; x++)
@@ -87,7 +99,7 @@ namespace JustGame.Scripts.World
             if (Path != null && Path.Contains(node))
             {
                 Gizmos.color = Color.yellow;
-                Gizmos.DrawCube(node.WorldPosition,Vector3.one);
+                Gizmos.DrawWireCube(node.WorldPosition,Vector3.one);
             }
             else
             {

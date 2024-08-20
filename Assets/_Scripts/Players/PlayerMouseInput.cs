@@ -1,6 +1,7 @@
 using JustGame.Scripts.Defense;
 using JustGame.Scripts.Managers;
 using JustGame.Scripts.ScriptableEvent;
+using JustGame.Scripts.World;
 using UnityEngine;
 using Grid = JustGame.Scripts.World.Grid;
 
@@ -109,7 +110,7 @@ namespace JustGame.Scripts.Player
             m_assignedBuilding.transform.position = curPos;
             m_placeBuildingPosEvent.Raise(curPos);
             
-            m_grid.AddObstacle(curPos);
+            PathFinding.Instance.AddObstacle(curPos);
             
             //Set state to "Building" which require player to go nearby and build it
             var controller = m_assignedBuilding.GetComponent<BuildingController>();
