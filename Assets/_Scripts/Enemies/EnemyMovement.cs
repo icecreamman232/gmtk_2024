@@ -1,4 +1,5 @@
 using System;
+using JustGame.Scripts.World;
 using UnityEngine;
 
 namespace JustGame.Scripts.Enemy
@@ -7,7 +8,7 @@ namespace JustGame.Scripts.Enemy
     {
         [SerializeField] private float m_scaleSpeed;
         [SerializeField] private float m_moveSpeed;
-        [SerializeField] private Transform m_target;
+        [SerializeField] private Vector2 m_target;
         [SerializeField] private Vector3 m_offsetRaycast;
         [SerializeField] private float m_distanceToCheckObstacle;
         [SerializeField] private LayerMask m_obstacleMask;
@@ -19,7 +20,17 @@ namespace JustGame.Scripts.Enemy
         private bool m_shouldMove;
 
         public Action<Collider2D> OnHitObstacle;
-        
+
+        private void OnEnable()
+        {
+            PathFinding.Instance.OnAddObstacle += OnAddObstacleInWorld;
+        }
+
+        private void OnDisable()
+        {
+            PathFinding.Instance.OnAddObstacle -= OnRemoveObstacleInWorld;
+        }
+
         public void Initialize(EnemyController enemyController, int level)
         {
             m_controller = enemyController;
@@ -29,9 +40,9 @@ namespace JustGame.Scripts.Enemy
             }
         }
 
-        public void MoveTo(Transform targetTransform)
+        public void MoveTo(Vector2 targetPos)
         {
-            m_target = targetTransform;
+            m_target = targetPos;
             m_shouldMove = true;
         }
 
@@ -40,22 +51,38 @@ namespace JustGame.Scripts.Enemy
             m_shouldMove = false;
         }
 
+        private void OnAddObstacleInWorld()
+        {
+            if (m_controller == null) return;
+            m_controller.FindNewPath();
+            MoveTo(m_controller.GetNextTarget());
+        }
+
+        private void OnRemoveObstacleInWorld()
+        {
+            if (m_controller == null) return;
+            m_controller.FindNewPath();
+            MoveTo(m_controller.GetNextTarget());
+        }
+
         private void Update()
         {
             if (m_target == null) return;
             
-            if (CheckObstacle())
-            {
-                StopMoving();
-            }
-            else
-            {
-                //Resume moving to target if obstacle got destroyed
-                if (!m_shouldMove && m_target!=null)
-                {
-                    MoveTo(m_target);
-                }
-            }
+            // if (CheckObstacle())
+            // {
+            //     m_controller.FindNewPath();
+            //     MoveTo(m_controller.GetNextTarget());
+            // }
+            // else
+            // {
+            //     //Resume moving to target if obstacle got destroyed
+            //     if (!m_shouldMove && m_target!=null)
+            //     {
+            //         m_controller.FindNewPath();
+            //         MoveTo(m_controller.GetNextTarget());
+            //     }
+            // }
             
             if (!m_shouldMove) return;
             UpdateMovement();
@@ -63,7 +90,7 @@ namespace JustGame.Scripts.Enemy
 
         private bool CheckObstacle()
         {
-            m_direction = (m_target.position - transform.position).normalized;
+            m_direction = (m_target - (Vector2)transform.position).normalized;
             m_hit2D = Physics2D.Raycast(transform.position + m_offsetRaycast, Vector2.left, m_distanceToCheckObstacle, m_obstacleMask);
             if (m_hit2D.collider != null)
             {
@@ -76,10 +103,10 @@ namespace JustGame.Scripts.Enemy
         private void UpdateMovement()
         {
             transform.position =
-                Vector2.MoveTowards(transform.position, m_target.position, Time.deltaTime * m_moveSpeed);
-            if (Vector2.Distance(transform.position, m_target.position) <= 1)
+                Vector2.MoveTowards(transform.position, m_target, Time.deltaTime * m_moveSpeed);
+            if (Vector2.Distance(transform.position, m_target) <= 0.05f)
             {
-                m_controller.RequestNextPoint();
+                m_target = m_controller.GetNextTarget();
             }
         }
 

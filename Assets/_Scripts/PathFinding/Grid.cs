@@ -9,6 +9,7 @@ namespace JustGame.Scripts.World
     [SerializeField]  private int m_gridSizeY;
     private Node[,] m_grid;
     public List<Node> Path;
+    public List<Node> Obstacles;
 
     private int m_halfGridX;
     private int m_halfGridY;
@@ -17,28 +18,31 @@ namespace JustGame.Scripts.World
     {
         var node = GetNodeFromWorldPos(pos);
         node.WalkAble = false;
+        Obstacles.Add(node);
     }
 
     public void RemoveObstacle(Vector2 pos)
     {
         var node = GetNodeFromWorldPos(pos);
         node.WalkAble = true;
+        Obstacles.Remove(node);
     }
     
     public Node GetNodeFromWorldPos(Vector2 worldPos)
     {
-        float percentX = (worldPos.x + m_halfGridX) / m_gridSizeX;
-        float percentY = (worldPos.y + m_halfGridY) / m_gridSizeY;
+        //float percentX = (worldPos.x + m_halfGridX) / m_gridSizeX;
+        //float percentY = (worldPos.y + m_halfGridY) / m_gridSizeY;
+        
+        //Optimize calculation
+        float percentX = worldPos.x / m_gridSizeX + 0.5f;
+        float percentY = worldPos.y/ m_gridSizeY + 0.5f;
+        
         percentX = Mathf.Clamp01(percentX);
         percentY = Mathf.Clamp01(percentY);
 
-        int x = Mathf.RoundToInt((m_gridSizeX - 1) * percentX);
-        int y = Mathf.RoundToInt((m_gridSizeY - 1) * percentY);
-        
-        // //for fraction loss
-        x = x >= m_halfGridX ? x + 1 : x;
-        y = y >= m_halfGridY ? y + 1 : y;
-        
+        int x = Mathf.CeilToInt((m_gridSizeX - 1) * percentX);
+        int y = Mathf.CeilToInt((m_gridSizeY - 1) * percentY);
+
         return m_grid[x, y];
     }
 

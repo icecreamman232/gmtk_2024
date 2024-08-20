@@ -3,6 +3,7 @@ using System.Collections;
 using JustGame.Scripts.Data;
 using JustGame.Scripts.Managers;
 using JustGame.Scripts.UI;
+using JustGame.Scripts.World;
 using UnityEngine;
 
 namespace JustGame.Scripts.Defense
@@ -72,6 +73,7 @@ namespace JustGame.Scripts.Defense
 
         private void Kill()
         {
+            PathFinding.Instance.RemoveObstacle(transform.position);
             OnDeath?.Invoke();
             Destroy(this.gameObject);
         }
