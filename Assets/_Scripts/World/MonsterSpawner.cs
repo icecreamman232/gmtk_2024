@@ -43,7 +43,7 @@ namespace JustGame.Scripts.World
         {
             m_aliveMonsterList = new HashSet<EnemyHealth>();
             m_aliveEliteMonsterList = new HashSet<EnemyHealth>();
-            m_canSpawn = true;
+            //m_canSpawn = true;
         }
 
         private void OnEnable()
