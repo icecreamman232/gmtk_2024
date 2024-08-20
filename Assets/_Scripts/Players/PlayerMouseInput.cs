@@ -10,7 +10,7 @@ namespace JustGame.Scripts.Player
     public class PlayerMouseInput : MonoBehaviour
     {
         [SerializeField] private Camera m_mainCamera;
-        [SerializeField] private ActionEvent m_onLeftMouseClickInWorld;
+        [SerializeField] private BoolEvent m_onLeftMouseClickInWorld;
         [SerializeField] private GameObjectEvent m_buildingBtnToCursorEvent;
         [SerializeField] private Vector3Event m_placeBuildingPosEvent;
         [SerializeField] private Grid m_grid;
@@ -33,7 +33,6 @@ namespace JustGame.Scripts.Player
         {
             if (Input.GetMouseButtonDown(0))
             {
-                m_onLeftMouseClickInWorld.Raise();
                 if (m_assignedBuilding != null)
                 {
                     PlaceBuildingIntoWorld();
@@ -68,6 +67,7 @@ namespace JustGame.Scripts.Player
                     m_lastBuildingBeingClicked = null;
                 }
             }
+            m_onLeftMouseClickInWorld.Raise(true);
         }
 
         private bool IsClickOnBuildingInWorld(out Collider2D resultCollider)
@@ -114,6 +114,7 @@ namespace JustGame.Scripts.Player
             var path = PathFinding.Instance.FindPath(m_startPoint.position, m_endPoint.position,curPos);
             if (path == null || path.Count <= 1)
             {
+                m_onLeftMouseClickInWorld.Raise(false);
                 Destroy(m_assignedBuilding);
                 m_assignedBuilding = null;
                 return;
@@ -132,6 +133,8 @@ namespace JustGame.Scripts.Player
             
             m_assignedBuilding.transform.parent = null;
             m_assignedBuilding = null;
+            
+            m_onLeftMouseClickInWorld.Raise(true);
         }
     }
 }

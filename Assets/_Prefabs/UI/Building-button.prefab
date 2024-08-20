@@ -275,5 +275,5 @@ MonoBehaviour:
   m_icon: {fileID: 204818337138772664}
   m_isClicked: 0
   m_buildingPrefab: {fileID: 0}
-  m_onLeftMouseClick: {fileID: 11400000, guid: 76e0637e33ca0c1469efa47cbc06b093, type: 2}
+  m_onLeftMouseClick: {fileID: 11400000, guid: 1c0c7ec1c94d7bd48b16303a4ad9dbac, type: 2}
   m_assignToCursorEvent: {fileID: 11400000, guid: d4502624c0a3a1a4aaaa64192c596024, type: 2}

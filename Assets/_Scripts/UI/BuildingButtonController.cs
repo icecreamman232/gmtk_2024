@@ -12,7 +12,7 @@ namespace JustGame.Scripts.UI
         [SerializeField] private Image m_icon;
         [SerializeField] private bool m_isClicked;
         [SerializeField] private GameObject m_buildingPrefab;
-        [SerializeField] private ActionEvent m_onLeftMouseClick;
+        [SerializeField] private BoolEvent m_onLeftMouseClick;
         [SerializeField] private GameObjectEvent m_assignToCursorEvent;
 
         private BuildingButtonPanel m_panelRef;
@@ -62,10 +62,14 @@ namespace JustGame.Scripts.UI
             AssignBuildingPrefabToCursor();
         }
 
-        private void OnLeftMouseClickInWorld()
+        private void OnLeftMouseClickInWorld(bool value)
         {
             if (!m_isClicked) return;
             m_isClicked = false;
+            if (!value)
+            {
+                return;
+            }
             SetBuildingPrefab(m_panelRef.GetRandomBuildingPrefab());
         }
         

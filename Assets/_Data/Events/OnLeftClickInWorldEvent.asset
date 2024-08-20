@@ -9,6 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 371d44c975727d048a102ceeefc2971a, type: 3}
+  m_Script: {fileID: 11500000, guid: 4666dc4c2833fca41b08b54cf7ed6893, type: 3}
   m_Name: OnLeftClickInWorldEvent
   m_EditorClassIdentifier: 
