@@ -17,6 +17,7 @@ MonoBehaviour:
   AvailableColor: {r: 0.990566, g: 0.9362575, b: 0.126157, a: 1}
   Prefab: {fileID: 3920795308512080570, guid: ab75dcf010371c94ab0755c8105468a0, type: 3}
   Icon: {fileID: -955220016, guid: dcc928c02e542834199d6efe6c42de7f, type: 3}
+  WhiteIcon: {fileID: -955220016, guid: 606fe6da4616037458995558b998b7c7, type: 3}
   BuildTime: 0.3
   Price: 50
   OffenseData: {fileID: 0}

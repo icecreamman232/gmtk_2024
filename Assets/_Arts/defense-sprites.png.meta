@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7d9ad2e059a3c034486ae3ee654e5dee
+guid: dcc928c02e542834199d6efe6c42de7f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: arrow-tower
+      name: brick-defense
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 229b2e45c9d96d34fa657daff55e42c9
-      internalID: -2047780462
+      spriteID: 532d40ca75b29ba459a9bc646b0095b2
+      internalID: -885057463
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arcane-tower
+      name: tree-defense
       rect:
         serializedVersion: 2
         x: 12
@@ -145,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8eefbbd8c58b09b4a9ac27aec54681a0
-      internalID: -1280311590
+      spriteID: c4045c3d2ebabe944a8ff253bc272022
+      internalID: -319341231
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: brick-tower
+      name: farm-defense
       rect:
         serializedVersion: 2
         x: 24
@@ -166,29 +166,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5f6caafaccf579746b50a77a47d6c147
-      internalID: 784580759
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: hydro-tower
-      rect:
-        serializedVersion: 2
-        x: 36
-        y: 0
-        width: 12
-        height: 12
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4e466dbaaba7747498a58ef60b273426
-      internalID: 687381347
+      spriteID: 6125d93bf8ac4e1498c9adf94937cefb
+      internalID: -955220016
       vertices: []
       indices: 
       edges: []
@@ -204,10 +183,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      arcane-tower: -1280311590
-      arrow-tower: -2047780462
-      brick-tower: 784580759
-      hydro-tower: 687381347
+      brick-defense: -885057463
+      farm-defense: -955220016
+      tree-defense: -319341231
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

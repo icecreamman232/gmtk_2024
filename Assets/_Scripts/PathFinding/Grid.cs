@@ -95,7 +95,7 @@ namespace JustGame.Scripts.World
         }
     }
 
-    private void OnDrawGizmos()
+    private void OnDrawGizmosSelected()
     {
         if (m_grid == null) return;
         foreach (var node in m_grid)

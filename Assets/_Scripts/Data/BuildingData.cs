@@ -7,9 +7,9 @@ namespace JustGame.Scripts.Data
     {
         public string ID;
         public string BuildingName;
-        public Color AvailableColor;
         public GameObject Prefab;
         public Sprite Icon;
+        public Sprite WhiteIcon;
         public float BuildTime;
         public int Price;
 

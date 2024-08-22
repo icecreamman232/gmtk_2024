@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: Arcane Tower
   BuildingName: ArcaneTower
-  AvailableColor: {r: 0.65882355, g: 0.17254902, b: 0.91764706, a: 1}
+  AvailableColor: {r: 0.84313726, g: 0.23529412, b: 0.6901961, a: 1}
   Prefab: {fileID: 801622610670715534, guid: 5fe47206067c6cb4e8e443f4c4fbf044, type: 3}
   Icon: {fileID: -1280311590, guid: 7d9ad2e059a3c034486ae3ee654e5dee, type: 3}
+  WhiteIcon: {fileID: 56771292, guid: c6244c3d07e933c4abba9e03dfddee0b, type: 3}
   BuildTime: 0.5
   Price: 150
   OffenseData: {fileID: 11400000, guid: e2eb8fa69605e014fb48e95eaef4f021, type: 2}

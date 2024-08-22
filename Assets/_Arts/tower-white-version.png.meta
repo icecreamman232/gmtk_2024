@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7d9ad2e059a3c034486ae3ee654e5dee
+guid: c6244c3d07e933c4abba9e03dfddee0b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: arrow-tower
+      name: tower-white-version_0
       rect:
         serializedVersion: 2
         x: 0
@@ -118,20 +118,20 @@ TextureImporter:
         width: 12
         height: 12
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 229b2e45c9d96d34fa657daff55e42c9
-      internalID: -2047780462
+      spriteID: 3102270b682119647b3abf18e3c381bc
+      internalID: -1272188228
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arcane-tower
+      name: tower-white-version_1
       rect:
         serializedVersion: 2
         x: 12
@@ -139,20 +139,20 @@ TextureImporter:
         width: 12
         height: 12
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8eefbbd8c58b09b4a9ac27aec54681a0
-      internalID: -1280311590
+      spriteID: e14bd7f5d7202554186d3be3a7f4ff43
+      internalID: 56771292
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: brick-tower
+      name: tower-white-version_2
       rect:
         serializedVersion: 2
         x: 24
@@ -160,35 +160,14 @@ TextureImporter:
         width: 12
         height: 12
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5f6caafaccf579746b50a77a47d6c147
-      internalID: 784580759
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: hydro-tower
-      rect:
-        serializedVersion: 2
-        x: 36
-        y: 0
-        width: 12
-        height: 12
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4e466dbaaba7747498a58ef60b273426
-      internalID: 687381347
+      spriteID: 8bcd42beb04919f4c9db35c931fdf7e9
+      internalID: 2096245180
       vertices: []
       indices: 
       edges: []
@@ -204,10 +183,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      arcane-tower: -1280311590
-      arrow-tower: -2047780462
-      brick-tower: 784580759
-      hydro-tower: 687381347
+      tower-white-version_0: -1272188228
+      tower-white-version_1: 56771292
+      tower-white-version_2: 2096245180
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

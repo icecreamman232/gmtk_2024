@@ -53,24 +53,7 @@ namespace JustGame.Scripts.Enemy
         {
         
         }
-    
-        // public virtual void RequestNextPoint()
-        // {
-        //     //Last point so we stop here
-        //     if (m_targetPoint.NextPoint == null)
-        //     {
-        //         m_movement.StopMoving();
-        //         gameObject.SetActive(false);
-        //         Destroy(gameObject);
-        //     }
-        //     else
-        //     {
-        //         //Move to next point
-        //         m_targetPoint = m_targetPoint.NextPoint;
-        //         m_movement.MoveTo(m_targetPoint.transform);
-        //     }
-        // }
-
+        
         private void OnDestroy()
         {
             m_movement.OnHitObstacle -= OnHitObstacle;

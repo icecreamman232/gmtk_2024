@@ -48,7 +48,6 @@ namespace JustGame.Scripts.UI
             m_price = buildingController.Price;
 
             m_icon.sprite = buildingController.Icon;
-            m_icon.color = buildingController.IconColor;
         }
 
         public override void OnPointerClick(PointerEventData eventData)

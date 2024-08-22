@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: dcc928c02e542834199d6efe6c42de7f
+guid: 606fe6da4616037458995558b998b7c7
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: gmtk-defense_0
+      name: brick-defense-white
       rect:
         serializedVersion: 2
         x: 0
@@ -131,7 +131,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gmtk-defense_1
+      name: tree-defense-white
       rect:
         serializedVersion: 2
         x: 12
@@ -152,7 +152,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gmtk-defense_2
+      name: farm-white
       rect:
         serializedVersion: 2
         x: 24
@@ -160,7 +160,7 @@ TextureImporter:
         width: 12
         height: 12
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -183,9 +183,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      gmtk-defense_0: -885057463
-      gmtk-defense_1: -319341231
-      gmtk-defense_2: -955220016
+      brick-defense-white: -885057463
+      farm-white: -955220016
+      tree-defense-white: -319341231
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

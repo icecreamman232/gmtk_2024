@@ -30,12 +30,12 @@ namespace JustGame.Scripts.Defense
 
         public Action<BuildingState> OnStateChange;
         
+        public Sprite WhiteIcon => m_data.WhiteIcon;
         public Sprite Icon => m_data.Icon;
 
         public BuildingState CurrentState => m_curState;
 
         public int Price => m_data.Price;
-        public Color IconColor => m_data.AvailableColor;
         
         public bool IsPermit
         {
@@ -61,12 +61,15 @@ namespace JustGame.Scripts.Defense
             {
                 case BuildingState.IDLE:
                     break;
+                case BuildingState.READY_TO_BUILD:
+                    m_bodyRenderer.sprite = m_data.WhiteIcon;
+                    break;
                 case BuildingState.BUILDING:
                     m_curBuildTime += Time.deltaTime;
                     m_timeBar.UpdateFillBar(MathHelpers.Remap(m_curBuildTime,0,m_data.BuildTime,0,1));
                     if (m_curBuildTime >= m_data.BuildTime)
                     {
-                        m_bodyRenderer.color = m_data.AvailableColor;
+                        m_bodyRenderer.sprite = m_data.Icon;
                         SetBuildingState(BuildingState.IDLE);
                     }
                     break;
