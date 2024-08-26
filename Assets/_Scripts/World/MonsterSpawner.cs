@@ -22,6 +22,9 @@ namespace JustGame.Scripts.World
         [SerializeField] private PointController m_startingPoint;
         [SerializeField] private MonsterContainer m_monsterContainer;
         [SerializeField] private EnemyDeathEvent m_enemyDeathEvent;
+
+        [SerializeField] private Vector2 m_randomX;
+        [SerializeField] private Vector2 m_randomY;
         
         [Header("Placeholder Data")] 
         [SerializeField] private int m_monsterLevel;
@@ -145,10 +148,14 @@ namespace JustGame.Scripts.World
         
         private void SpawnMonster()
         {
+            var randomX = Random.Range(m_randomX.x, m_randomX.y);
+            var randomY = Random.Range(m_randomY.x, m_randomY.y);
+            var spawnPos = m_startingPoint.transform.position + new Vector3(randomX, randomY);
             var randomIndex = Random.Range(0, m_monsterContainer.Monsters.Length);
-            var monster = Instantiate(m_monsterContainer.Monsters[randomIndex], m_startingPoint.transform.position,
+            var monster = Instantiate(m_monsterContainer.Monsters[randomIndex], spawnPos,
                 Quaternion.identity);
             var enemyController = monster.GetComponent<EnemyController>();
+            
             enemyController.Initialize(m_startingPoint, m_monsterLevel);
 
             m_aliveMonsterList.Add(monster.GetComponent<EnemyHealth>());
