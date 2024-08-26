@@ -2180,19 +2180,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8419698243287970999, guid: 1a39278571d7ffe4cb83e48e54adf46e, type: 3}
       propertyPath: m_randomX.x
-      value: -1
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8419698243287970999, guid: 1a39278571d7ffe4cb83e48e54adf46e, type: 3}
       propertyPath: m_randomX.y
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8419698243287970999, guid: 1a39278571d7ffe4cb83e48e54adf46e, type: 3}
       propertyPath: m_randomY.x
-      value: -1
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8419698243287970999, guid: 1a39278571d7ffe4cb83e48e54adf46e, type: 3}
       propertyPath: m_randomY.y
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8419698243287970999, guid: 1a39278571d7ffe4cb83e48e54adf46e, type: 3}
       propertyPath: m_startingPoint
